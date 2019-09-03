@@ -1,0 +1,42 @@
+{% set name = "suitcase-tiff" %}
+{% set version = "0.2.0" %}
+{% set sha256 = "47a880c304d66cd1406581fb47a59410ee4907d1cc4005e50d539fd89bea49e4" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - event-model >=1.8.0
+    - suitcase-utils
+    - tifffile
+
+test:
+  imports:
+    - suitcase.tiff_series
+    - suitcase.tiff_series.tests
+    - suitcase.tiff_stack
+    - suitcase.tiff_stack.tests
+
+about:
+  home: https://blueskyproject.io/suitcase
+  license: BSD (3-clause)
+  license_family: BSD
+  license_file: LICENSE
+  summary: Export bluesky documents to TIFF
+  doc_url: https://blueskyproject.io/suitcase
+  dev_url: https://github.com/bluesky/suitcase-tiff
