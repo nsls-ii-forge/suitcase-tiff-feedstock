@@ -1,6 +1,6 @@
 {% set name = "suitcase-tiff" %}
-{% set version = "0.2.0" %}
-{% set sha256 = "47a880c304d66cd1406581fb47a59410ee4907d1cc4005e50d539fd89bea49e4" %}
+{% set version = "0.2.1" %}
+{% set sha256 = "44d8f760711ac751f0141f1dd9394c524f7aaf42fdfb30bb873dc6a7a8934c33" %}
 
 package:
   name: "{{ name|lower }}"
