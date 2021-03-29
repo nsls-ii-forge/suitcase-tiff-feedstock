@@ -1,10 +1,10 @@
 {% set name = "suitcase-tiff" %}
-{% set version = "0.2.1" %}
-{% set sha256 = "44d8f760711ac751f0141f1dd9394c524f7aaf42fdfb30bb873dc6a7a8934c33" %}
+{% set version = "0.3.0" %}
+{% set sha256 = "51a67fc394a460557bbdcd68de8c2c2a43c3f328191130c631168347544c5fa4" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
@@ -13,7 +13,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
 requirements:
   host:
